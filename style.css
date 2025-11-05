@@ -1,0 +1,324 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+/* Reset Styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Root Variables */
+:root {
+    --tenne-tawny: #d65108;
+    --tenne-tawny-dark: #b54507;
+}
+
+/* Body Styles */
+body {
+    font-weight: 300;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9; /* Optional: Add a background color */
+    background-image: url('img3.jpg');
+    background-size: cover; /* Ensures image covers entire background */
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Adding a semi-transparent overlay */
+    background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+    background-blend-mode: overlay; 
+}
+
+/* Utility Classes */
+.btn {
+    font-family: inherit;
+    cursor: pointer;
+    outline: 0;
+    font-size: 1.05rem;
+}
+
+.text {
+    opacity: 0.8;
+}
+
+.title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.container {
+    min-height: 100vh;
+}
+
+/* Meal Wrapper */
+.meal-wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #fff;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+}
+
+/* Meal Search */
+.meal-search {
+    margin: 2rem 0;
+}
+
+.meal-search blockquote {
+    font-size: 1rem;
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.meal-search cite {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--tenne-tawny-dark);
+}
+
+/* Meal Search Box */
+.meal-search-box {
+    margin: 1.2rem 0; /* Corrected from comma to space */
+    display: flex;
+    align-items: stretch;
+}
+
+.search-control,
+.search-btn {
+    width: 100%;
+}
+
+.search-control {
+    padding: 0.1rem 1rem; /* Added horizontal padding for better input */
+    font-size: 1.1rem;
+    font-family: inherit;
+    outline: 0;
+    border: 1px solid var(--tenne-tawny);
+    color: var(--tenne-tawny);
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    border-right: none; /* Remove right border to connect with button */
+}
+
+.search-control::placeholder {
+    color: var(--tenne-tawny); /* Corrected variable name */
+}
+
+.search-btn {
+    width: 55px;
+    height: 55px;
+    font-size: 1.8rem;
+    background: var(--tenne-tawny);
+    color: #fff;
+    border: none;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    transition: background 0.4s linear;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-btn:hover {
+    background: var(--tenne-tawny-dark);
+}
+
+/* Meal Result */
+.meal-result {
+    margin-top: 4rem;
+}
+
+/* Meal Items */
+#meal {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column by default */
+    gap: 2rem;
+    margin: 2.4rem 0;
+}
+
+.meal-item {
+    background-color: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.79);
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.meal-img img {
+    width: 100%;
+    display: block;
+}
+
+.meal-name {
+    padding: 1.5rem 0.5rem;
+}
+
+.meal-name h3 {
+    font-size: 1.4rem;
+    color: var(--tenne-tawny-dark);
+}
+
+.recipe-btn {
+    text-decoration: none;
+    color: #fff;
+    background: var(--tenne-tawny-dark);
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem;
+    display: inline-block;
+    margin: 1rem auto 0;
+    border-radius: 2rem;
+    transition: background 0.4s linear;
+}
+
+.recipe-btn:hover {
+    background: var(--tenne-tawny-dark); /* Ensure the hover color is correct */
+}
+
+.meal-details{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    background: var(--tenne-tawny);
+    border-radius: 1rem;
+    width: 90%;
+    height: 90%;
+    overflow-y: scroll;
+    display: none;
+    padding: 2rem 0;
+}
+
+.meal-details::-webkit-scrollbar{
+    width: 10px;
+}
+
+.meal-details::-webkit-scrollbar-thumb{
+    background:#f0f0f0;
+    border-radius: 2rem;
+}
+
+.showRecipe{
+    display: block;
+}
+
+.meal-details-content p:not(.recipe-category){
+    margin: 2rem;
+}
+
+.meal-details-content p{
+    padding: 1rem 0;
+}
+
+.recipe-close-btn{
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    font-size: 1.8rem;
+    background:#fff;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.recipe-title{
+    letter-spacing: 1px;
+    padding-bottom: 1rem;
+}
+
+.recipe-category{
+    background: #fff;
+    font-weight: 600;
+    color: var(--tenne-tawny);
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.3rem;
+}
+
+.recipe-instruct{
+    padding: 1rem 0;
+}
+
+.recipe-meal-img{
+    width: 100px;
+    height: 100px;
+    border-radius:50%;
+    margin: 0 auto;
+    display:block;
+}
+
+.recipe-link{
+    margin: 1.4rem 0;
+}
+
+.recipe-link a{
+    color:#fff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    transition: all 0.4s linear;
+}
+
+.recipe-link a:hover{
+    opacity: 0.8;
+} 
+
+.notFound{
+    grid-template-columns: 1fr!important;
+    color: var(--tenne-tawny);
+    font-size: 1.8rem;
+    font-weight: 600;
+    width: 100%;
+}
+
+/* Media Queries */
+
+/* Medium Devices (Tablets, 768px and up) */
+@media screen and (min-width: 768px) {
+    #meal {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .meal-item {
+        margin: 1rem 0;
+    }
+
+    .meal-details {
+        width: 700px;
+    }
+}
+
+/* Large Devices (Desktops, 992px and up) */
+@media screen and (min-width: 992px) {
+    #meal {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Extra Large Devices (1000px and up) */
+@media screen and (min-width: 1000px) {
+    .meal-search-box {
+        width: 540px;
+        margin: 0 auto;
+    }
+
+    #meal {
+        grid-template-columns: repeat(3, 1fr); /* Adjust if necessary */
+    }
+
+    .meal-details {
+        width: 700px;
+    }
+}
