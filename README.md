@@ -2,7 +2,7 @@
 
 A responsive web application that helps users discover recipes based on ingredients they have.
 
-## Features
+## 🚀 Features
 - Search recipes using available ingredients
 - Fetch real-time data from external APIs
 - Display recipe details (ingredients, instructions, images)
