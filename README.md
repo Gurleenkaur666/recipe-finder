@@ -16,4 +16,5 @@ A responsive web application that helps users discover recipes based on ingredie
 - REST APIs (Fetch API)
 
 ## Live Demo
+https://recipe-finder-eight-phi.vercel.app/
 
